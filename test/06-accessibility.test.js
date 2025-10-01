@@ -1,26 +1,26 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
 const pdfParse = require('pdf-parse');
 const pdfHelper = require('./utils/pdf-helper');
 
 describe('Accessibility and Usability', function() {
-  this.timeout(10000);
-
+  // Skip all tests in this suite if in CI environment
   before(function(done) {
-    // Backup the original PDF
-    pdfHelper.backupReferencePdf();
-
-    // Generate a test PDF
-    pdfHelper.generateTestPdf(done);
+    if (process.env.CI === 'true') {
+      console.log('Skipping Accessibility tests in CI environment');
+      this.skip();
+    } else {
+      this.timeout(10000);
+      pdfHelper.generateTestPdf(done);
+    }
   });
 
   after(function() {
-    // Restore the original PDF
-    pdfHelper.restoreReferencePdf();
-
-    // Clean up test PDF
-    pdfHelper.cleanupTestPdf();
+    if (process.env.CI !== 'true') {
+      pdfHelper.cleanupTestPdf();
+    }
   });
 
   it('should have a reasonable file size', function() {

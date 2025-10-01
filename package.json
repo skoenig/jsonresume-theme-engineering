@@ -17,13 +17,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "resume serve --theme .",
-    "export": "resume export --theme . resume.pdf",
+    "html": "resumed render --theme jsonresume-theme-engineering",
+    "pdf": "resumed export --theme jsonresume-theme-engineering",
     "test": "mocha test/*.test.js"
   },
   "dependencies": {
     "address-format": "0.0.3",
     "handlebars": "^4.7.8",
+    "jsonresume-theme-engineering": "file:./",
     "moment": "^2.30.1"
   },
   "devDependencies": {
@@ -32,7 +33,8 @@
     "pdf-img-convert": "^2.0.0",
     "pdf-parse": "^1.1.1",
     "pngjs": "^7.0.0",
-    "resume-cli": "^3.1.2",
+    "puppeteer": "^24.22.3",
+    "resumed": "^6.1.0",
     "sinon": "^21.0.0"
   }
 }
