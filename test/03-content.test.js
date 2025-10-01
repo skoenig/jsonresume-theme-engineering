@@ -17,7 +17,7 @@ describe('PDF Export', function() {
 
     // Configure the stub to simulate successful PDF generation
     execStub.callsFake((command, callback) => {
-      if (command === 'npm run export') {
+      if (command === 'npm run pdf') {
         // Simulate the PDF export process
         fs.writeFileSync(pdfHelper.referencePdfPath, 'PDF content');
         callback(null, 'PDF export successful');
@@ -42,7 +42,7 @@ describe('PDF Export', function() {
     const resume = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'sample-resume.json'), 'utf-8'));
     fs.writeFileSync(path.join(__dirname, '..', 'resume.json'), JSON.stringify(resume));
 
-    childProcess.exec('npm run export', (error, stdout, stderr) => {
+    childProcess.exec('npm run pdf', (error, stdout, stderr) => {
       if (error) {
         return done(error);
       }
@@ -65,7 +65,7 @@ describe('PDF Export', function() {
       callback(new Error('Simulated error during PDF export'));
     });
 
-    childProcess.exec('npm run export', (error, stdout, stderr) => {
+    childProcess.exec('npm run pdf', (error, stdout, stderr) => {
       assert(error, 'An error should be thrown during PDF export');
       done();
     });

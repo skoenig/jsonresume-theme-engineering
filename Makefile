@@ -16,7 +16,7 @@ resume.json: sample-resume.json
 	cp sample-resume.json resume.json
 
 resume.pdf: resume.json index.js  $(HBS_TEMPLATES)
-	npm run export
+	npm run pdf
 
 resume.png: resume.pdf
 	pdftoppm -png resume.pdf > resume.png

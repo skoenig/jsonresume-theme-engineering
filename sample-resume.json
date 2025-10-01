@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "pdfRenderOptions": {
+      "format": "A4",
+      "printBackground": true
+    }
+  },
   "basics": {
     "name": "Richard Hendriks",
     "label": "Programmer",

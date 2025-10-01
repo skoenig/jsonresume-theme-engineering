@@ -36,12 +36,12 @@ function generateTestPdf(callback) {
   fs.writeFileSync(path.join(__dirname, '..', '..', 'resume.json'), JSON.stringify(resume));
 
   // Try to generate a test PDF with a different name using the correct command format
-  exec(`resume export --theme . ${testPdfPath}`, (error) => {
+  exec(`resumed export --theme jsonresume-theme-engineering --output ${testPdfPath}`, (error) => {
     if (error) {
-      console.warn('Warning: Could not generate test PDF with custom name. Trying standard export.');
+      console.warn('Warning: Could not generate test PDF with custom name: ' + error.message + ' Trying standard export.');
 
       // Fall back to standard export command from package.json
-      exec('npm run export', (stdError) => {
+      exec('npm run pdf', (stdError) => {
         if (stdError) {
           return callback(new Error('Failed to generate PDF for testing: ' + stdError.message));
         }

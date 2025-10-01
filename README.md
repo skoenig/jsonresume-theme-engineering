@@ -27,7 +27,6 @@ Or if you're on OSX and got [Homebrew](http://brew.sh/) installed:
 brew install node
 ```
 
-
 ### Install npm packages
 
 We need to install the dependencies:
@@ -36,29 +35,28 @@ We need to install the dependencies:
 npm install
 ```
 
-### Serve theme
+### Render Resume
 
-If you do not provide a `resume.json` at the root directory level, copy the sample resume and run the development server:
+If you do not provide a `resume.json` at the root directory level, use the sample resume and render it as HTML:
 
 ```
 cp sample-resume.json resume.json
-npm start
+npm run html
 ```
 
 You should now see this message:
 
 ```
-Preview: http://localhost:4000
-Press ctrl-c to stop
+You can find your rendered resume at resume.html. Nice work! 🚀
 ```
 
 Congratulations, you've made it! You can now start to modify this theme (see Contribute section below).
 
 ## PDF Export
-To export your resume, you can run the following command below. This will automatically create a `resume.pdf` file within your current directory:
+To export your resume in PDF format, you can run the following command below. This will automatically create a `resume.pdf` file within your current directory:
 
 ```
-npm run export
+npm run pdf
 ```
 
 Alternatively, you can also do a **print page** on the browser and save it as as PDF (by setting margins to none and removing header/footers.)
