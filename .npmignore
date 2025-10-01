@@ -1,4 +1,7 @@
 # Development files
+renovate.json
+Makefile
+test/
 node_modules/
 npm-debug.log
 .git/
@@ -9,8 +12,9 @@ npm-debug.log
 sample-resume.json
 resume.json
 resume.html
-resume.pdf
 resume*.png
+resume.pdf
+reference.pdf
 
 .DS_Store
 public
