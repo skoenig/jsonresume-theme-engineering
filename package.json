@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/skoenig/jsonresume-theme-engineering"
   },
+  "homepage": "https://github.com/skoenig/jsonresume-theme-engineering#readme",
   "license": "MIT",
   "scripts": {
     "html": "resumed render --theme jsonresume-theme-engineering",
