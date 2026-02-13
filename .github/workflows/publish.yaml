@@ -1,0 +1,26 @@
+name: Publish to npmjs
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'  # Use the version from .nvmrc
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+      - run: npm publish
