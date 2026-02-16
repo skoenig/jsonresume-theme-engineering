@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "looks-same": "^10.0.1",
-    "mocha": "^11.7.2",
+    "mocha": "^11.3.0",
     "pdf-parse": "^2.0.0",
     "pngjs": "^7.0.0",
     "puppeteer": "^24.22.3",
