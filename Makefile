@@ -1,4 +1,4 @@
-.PHONY: install test all clean help
+.PHONY: all install test lint clean help
 
 .DEFAULT_GOAL := help
 
@@ -11,6 +11,9 @@ install: ## Install dependencies
 
 test: ## Run tests
 	npm run test
+
+lint: ## Lint files
+	npm run lint
 
 resume.json: sample-resume.json
 	cp sample-resume.json resume.json

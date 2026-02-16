@@ -32,30 +32,53 @@ function cleanupTestPdf() {
 }
 
 function generateTestPdf(callback) {
-  const resume = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'sample-resume.json'), 'utf-8'));
-  fs.writeFileSync(path.join(__dirname, '..', '..', 'resume.json'), JSON.stringify(resume));
+  const resume = JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, '..', '..', 'sample-resume.json'),
+      'utf-8',
+    ),
+  );
+  fs.writeFileSync(
+    path.join(__dirname, '..', '..', 'resume.json'),
+    JSON.stringify(resume),
+  );
 
   // Try to generate a test PDF with a different name using the correct command format
-  exec(`resumed export --theme jsonresume-theme-engineering --output ${testPdfPath}`, (error) => {
-    if (error) {
-      console.warn('Warning: Could not generate test PDF with custom name: ' + error.message + ' Trying standard export.');
+  exec(
+    `resumed export --theme jsonresume-theme-engineering --output ${testPdfPath}`,
+    (error) => {
+      if (error) {
+        console.warn(
+          'Warning: Could not generate test PDF with custom name: ' +
+            error.message +
+            ' Trying standard export.',
+        );
 
-      // Fall back to standard export command from package.json
-      exec('npm run pdf', (stdError) => {
-        if (stdError) {
-          return callback(new Error('Failed to generate PDF for testing: ' + stdError.message));
-        }
+        // Fall back to standard export command from package.json
+        exec('npm run pdf', (stdError) => {
+          if (stdError) {
+            return callback(
+              new Error(
+                'Failed to generate PDF for testing: ' + stdError.message,
+              ),
+            );
+          }
 
-        if (!fs.existsSync(referencePdfPath)) {
-          return callback(new Error('PDF was not generated at expected path: ' + referencePdfPath));
-        }
+          if (!fs.existsSync(referencePdfPath)) {
+            return callback(
+              new Error(
+                'PDF was not generated at expected path: ' + referencePdfPath,
+              ),
+            );
+          }
 
+          callback();
+        });
+      } else {
         callback();
-      });
-    } else {
-      callback();
-    }
-  });
+      }
+    },
+  );
 }
 
 function getPdfPathForTesting() {
@@ -69,5 +92,5 @@ module.exports = {
   restoreReferencePdf,
   cleanupTestPdf,
   generateTestPdf,
-  getPdfPathForTesting
+  getPdfPathForTesting,
 };

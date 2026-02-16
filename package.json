@@ -20,7 +20,8 @@
   "scripts": {
     "html": "resumed render --theme jsonresume-theme-engineering",
     "pdf": "resumed export --theme jsonresume-theme-engineering",
-    "test": "mocha test/*.test.js"
+    "test": "mocha test/*.test.js",
+    "lint": "prettier --write \"**/*.{js,cjs,mjs,json}\""
   },
   "dependencies": {
     "address-format": "0.0.3",
@@ -33,8 +34,12 @@
     "mocha": "^11.7.2",
     "pdf-parse": "^2.0.0",
     "pngjs": "^7.0.0",
+    "prettier": "^3.8.1",
     "puppeteer": "^24.22.3",
     "resumed": "^6.1.0",
     "sinon": "^21.0.0"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

@@ -3,38 +3,60 @@ const fs = require('fs');
 const path = require('path');
 const { render } = require('../index');
 
-describe('Render', function() {
-  it('should render a resume with valid input', function() {
-    const resume = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'sample-resume.json'), 'utf-8'));
+describe('Render', function () {
+  it('should render a resume with valid input', function () {
+    const resume = JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, '..', 'sample-resume.json'),
+        'utf-8',
+      ),
+    );
     const output = render(resume);
-    assert(output.includes('<title>Richard Hendriks</title>'), 'Output should include the name from the resume');
+    assert(
+      output.includes('<title>Richard Hendriks</title>'),
+      'Output should include the name from the resume',
+    );
   });
 
-  it('should throw an error with invalid input', function() {
-    assert.throws(() => render(null), Error, 'Expected input to be a valid resume object');
+  it('should throw an error with invalid input', function () {
+    assert.throws(
+      () => render(null),
+      Error,
+      'Expected input to be a valid resume object',
+    );
   });
 
-  it('should handle an empty resume object', function() {
+  it('should handle an empty resume object', function () {
     const emptyResume = {};
     const output = render(emptyResume);
-    assert(output.includes('<title></title>'), 'Output should handle an empty resume object');
+    assert(
+      output.includes('<title></title>'),
+      'Output should handle an empty resume object',
+    );
   });
 
-  it('should handle a resume object missing required fields', function() {
+  it('should handle a resume object missing required fields', function () {
     const incompleteResume = {
       basics: {
-        name: 'Jane Doe'
-      }
+        name: 'Jane Doe',
+      },
     };
     const output = render(incompleteResume);
-    assert(output.includes('<title>Jane Doe</title>'), 'Output should handle a resume object missing required fields');
+    assert(
+      output.includes('<title>Jane Doe</title>'),
+      'Output should handle a resume object missing required fields',
+    );
   });
 
-  it('should throw an error with invalid data type', function() {
-    assert.throws(() => render('invalid input'), Error, 'Expected input to be a valid resume object');
+  it('should throw an error with invalid data type', function () {
+    assert.throws(
+      () => render('invalid input'),
+      Error,
+      'Expected input to be a valid resume object',
+    );
   });
 
-  it('should handle a large resume object', function() {
+  it('should handle a large resume object', function () {
     const largeResume = {
       basics: {
         name: 'Large Resume',
@@ -48,9 +70,9 @@ describe('Render', function() {
           postalCode: '12345',
           city: 'Anytown',
           countryCode: 'US',
-          region: 'CA'
+          region: 'CA',
         },
-        profiles: []
+        profiles: [],
       },
       work: Array(1000).fill({
         company: 'Large Company',
@@ -58,7 +80,7 @@ describe('Render', function() {
         website: 'http://example.com',
         startDate: '2000-01-01',
         summary: 'Worked on various projects.',
-        highlights: ['Highlight 1', 'Highlight 2']
+        highlights: ['Highlight 1', 'Highlight 2'],
       }),
       education: [],
       skills: [],
@@ -66,13 +88,16 @@ describe('Render', function() {
       publications: [],
       languages: [],
       interests: [],
-      references: []
+      references: [],
     };
     const output = render(largeResume);
-    assert(output.includes('<title>Large Resume</title>'), 'Output should handle a large resume object');
+    assert(
+      output.includes('<title>Large Resume</title>'),
+      'Output should handle a large resume object',
+    );
   });
 
-  it('should handle special characters in fields', function() {
+  it('should handle special characters in fields', function () {
     const specialCharsResume = {
       basics: {
         name: 'Special & Ch@rs',
@@ -86,9 +111,9 @@ describe('Render', function() {
           postalCode: '12345',
           city: 'Anytown',
           countryCode: 'US',
-          region: 'CA'
+          region: 'CA',
         },
-        profiles: []
+        profiles: [],
       },
       work: [],
       education: [],
@@ -97,9 +122,12 @@ describe('Render', function() {
       publications: [],
       languages: [],
       interests: [],
-      references: []
+      references: [],
     };
     const output = render(specialCharsResume);
-    assert(output.includes('<title>Special &amp; Ch@rs</title>'), 'Output should handle special characters in fields');
+    assert(
+      output.includes('<title>Special &amp; Ch@rs</title>'),
+      'Output should handle special characters in fields',
+    );
   });
 });

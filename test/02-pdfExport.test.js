@@ -5,10 +5,10 @@ const sinon = require('sinon');
 const childProcess = require('child_process');
 const pdfHelper = require('./utils/pdf-helper');
 
-describe('PDF Export', function() {
+describe('PDF Export', function () {
   let execStub;
 
-  beforeEach(function() {
+  beforeEach(function () {
     // Backup the original PDF
     pdfHelper.backupReferencePdf();
 
@@ -27,7 +27,7 @@ describe('PDF Export', function() {
     });
   });
 
-  afterEach(function() {
+  afterEach(function () {
     // Restore all sinon stubs
     sinon.restore();
 
@@ -38,16 +38,27 @@ describe('PDF Export', function() {
     pdfHelper.cleanupTestPdf();
   });
 
-  it('should export a PDF with valid input', function(done) {
-    const resume = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'sample-resume.json'), 'utf-8'));
-    fs.writeFileSync(path.join(__dirname, '..', 'resume.json'), JSON.stringify(resume));
+  it('should export a PDF with valid input', function (done) {
+    const resume = JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, '..', 'sample-resume.json'),
+        'utf-8',
+      ),
+    );
+    fs.writeFileSync(
+      path.join(__dirname, '..', 'resume.json'),
+      JSON.stringify(resume),
+    );
 
     childProcess.exec('npm run pdf', (error, stdout, stderr) => {
       if (error) {
         return done(error);
       }
 
-      assert(fs.existsSync(pdfHelper.referencePdfPath), 'PDF file should be generated');
+      assert(
+        fs.existsSync(pdfHelper.referencePdfPath),
+        'PDF file should be generated',
+      );
 
       // Read the file as a Buffer instead of utf-8 string since PDF is binary
       const pdfExists = fs.existsSync(pdfHelper.referencePdfPath);
@@ -57,7 +68,7 @@ describe('PDF Export', function() {
     });
   });
 
-  it('should handle errors during PDF export', function(done) {
+  it('should handle errors during PDF export', function (done) {
     // Restore the original stub and create a new one that simulates an error
     sinon.restore();
     execStub = sinon.stub(childProcess, 'exec');
