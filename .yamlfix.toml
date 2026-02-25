@@ -1,0 +1,3 @@
+preserve_quotes = true
+sequence_style = "keep_style"
+section_whitelines = 1

@@ -1,0 +1,20 @@
+---
+name: 'Automated Version Bump'
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  bump:
+    if: ${{ github.event.pull_request.merged && (github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'renovate[bot]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Bump version
+        uses: phips28/gh-action-bump-version@v11
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version-type: patch
