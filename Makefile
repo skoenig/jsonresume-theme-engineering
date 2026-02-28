@@ -16,7 +16,7 @@ lint: ## Lint files
 	npm run lint
 
 resume.json: sample-resume.json
-	cp sample-resume.json resume.json
+	jq '.meta.pdfRenderOptions = {"format": "A4", "printBackground": true}' sample-resume.json > resume.json
 
 resume.pdf: resume.json index.js  $(HBS_TEMPLATES)
 	npm run pdf

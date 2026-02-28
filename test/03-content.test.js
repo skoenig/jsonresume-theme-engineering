@@ -78,11 +78,11 @@ describe('Content and Accessibility', function () {
     assert(hasPhone, 'Phone number should be included');
 
     // Website might be formatted differently
-    const websiteDomain = resume.basics.website
+    const websiteDomain = resume.basics.url
       .replace(/https?:\/\//i, '')
       .replace(/\/$/, '');
     const hasWebsite =
-      text.includes(websiteDomain) || text.includes(resume.basics.website);
+      text.includes(websiteDomain) || text.includes(resume.basics.url);
     assert(hasWebsite, 'Website should be included');
   });
 

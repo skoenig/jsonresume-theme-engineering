@@ -2,7 +2,7 @@
 <section id="work">
     <h2>Work Experience</h2>
     {{#each resume.work}}
-        {{#> item title=(getValueIfDiffFromPrevious @root.resume.work @index "company") subtitle=position location=location startDate=startDate endDate=endDate startDate2=startDate2 endDate2=endDate2}}
+        {{#> item title=(getValueIfDiffFromPrevious @root.resume.work @index "name") subtitle=position location=location startDate=startDate endDate=endDate startDate2=startDate2 endDate2=endDate2}}
 
         {{#if highlights.length}}
         <ul class="highlights">
