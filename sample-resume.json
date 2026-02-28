@@ -30,18 +30,105 @@
   },
   "work": [
     {
+      "name": "Stripe",
+      "location": "San Francisco, CA",
+      "description": "Financial infrastructure platform for the internet",
+      "position": "Staff Software Engineer",
+      "url": "https://stripe.com",
+      "startDate": "2022-02-01",
+      "endDate": "2024-03-01",
+      "summary": "Led architecture for high-throughput payment processing pipelines, mentoring senior engineers and guiding technical strategy across multiple product teams.",
+      "highlights": [
+        "Architected a new distributed ledger system that increased transaction throughput by 300%",
+        "Mentored a team of 15 engineers across 3 distinct product verticals",
+        "Spearheaded the migration to a modern microservices architecture built on Go and gRPC, reducing system latency by 40ms"
+      ]
+    },
+    {
+      "name": "Stripe",
+      "location": "San Francisco, CA",
+      "description": "Financial infrastructure platform for the internet",
+      "position": "Senior Software Engineer",
+      "url": "https://stripe.com",
+      "startDate": "2021-01-01",
+      "endDate": "2022-01-31",
+      "summary": "Core engineer on the billing API team, scaling systems to handle millions of requests per minute.",
+      "highlights": [
+        "Designed and built the core fraud-detection ML pipeline, saving the company $5M+ per year",
+        "Optimized PostgreSQL queries, dropping P99 API latency from 200ms to 45ms",
+        "Led cross-functional initiatives to improve developer experience and CI/CD stability"
+      ]
+    },
+    {
+      "name": "Twitch",
+      "location": "San Francisco, CA",
+      "description": "Live streaming platform",
+      "position": "Senior Backend Engineer",
+      "url": "https://www.twitch.tv",
+      "startDate": "2019-06-01",
+      "endDate": "2020-12-31",
+      "summary": "Developed scalable backend services for live video delivery.",
+      "highlights": [
+        "Improved video transcoding pipeline efficiency by 25%",
+        "Implemented real-time chat moderation features using machine learning",
+        "Scaled websocket connections to support 1M+ concurrent users per channel"
+      ]
+    },
+    {
       "name": "Pied Piper",
       "location": "Palo Alto, CA",
       "description": "Awesome compression company",
       "position": "CEO/President",
       "url": "http://piedpiper.example.com",
       "startDate": "2013-12-01",
-      "endDate": "2014-12-01",
+      "endDate": "2019-05-01",
       "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
       "highlights": [
         "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
         "Successfully won Techcrunch Disrupt",
         "Optimized an algorithm that holds the current world record for Weisman Scores"
+      ]
+    },
+    {
+      "name": "Hooli",
+      "description": "Multinational technology company",
+      "position": "Senior Software Engineer",
+      "url": "http://hooli.example.com",
+      "startDate": "2012-10-01",
+      "endDate": "2013-11-30",
+      "summary": "Lead developer for Hooli Search core algorithms.",
+      "highlights": [
+        "Redesigned the entire search indexing pipeline, reducing indexing time by 40%",
+        "Managed a team of 4 junior developers and oversaw their technical growth",
+        "Patented a new approach to distributed key-value store optimization"
+      ]
+    },
+    {
+      "name": "Hooli",
+      "description": "Multinational technology company",
+      "position": "Software Engineer",
+      "url": "http://hooli.example.com",
+      "startDate": "2011-08-01",
+      "endDate": "2012-09-30",
+      "summary": "Developed consumer-facing applications and optimized backend services for the Hooli platform.",
+      "highlights": [
+        "Implemented real-time messaging features used by millions of DAUs",
+        "Optimized memory management in C++ modules, reducing segmentation faults by 80%",
+        "Researched middle-out compression algorithms in spare time"
+      ]
+    },
+    {
+      "name": "Innotech",
+      "description": "B2B Software Solutions",
+      "position": "Junior Software Engineer",
+      "url": "http://innotech.example.com",
+      "startDate": "2010-06-01",
+      "endDate": "2011-07-31",
+      "summary": "Started career building internal tools and squashing bugs for a legacy CRM platform.",
+      "highlights": [
+        "Migrated 50+ legacy PHP components to modern React/Node.js stack",
+        "Wrote comprehensive unit tests, improving code coverage from 12% to 65%",
+        "Automated deployment pipelines to save 10 hours of manual work weekly"
       ]
     }
   ],
