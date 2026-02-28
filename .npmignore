@@ -1,22 +1,17 @@
 # Development files
-renovate.json
-Makefile
+.*
+.nvmrc
 test/
 node_modules/
 npm-debug.log
-.git/
-.github/
-.gitignore
+renovate.json
+Makefile
+public
+TODO.md
 
 # Sample and development data
 sample-resume.json
-resume.json
 resume.html
-resume*.png
 resume.pdf
-reference.pdf
-
-.DS_Store
-public
-TODO.md
-*.patch
+resume.json
+resume*.png
