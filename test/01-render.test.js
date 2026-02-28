@@ -75,7 +75,7 @@ describe('Render', function () {
         profiles: [],
       },
       work: Array(1000).fill({
-        company: 'Large Company',
+        name: 'Large Company',
         position: 'Software Engineer',
         website: 'http://example.com',
         startDate: '2000-01-01',

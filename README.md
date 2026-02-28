@@ -1,6 +1,22 @@
 # jsonresume-theme-engineering [![](https://badge.fury.io/js/jsonresume-theme-engineering.svg)](https://www.npmjs.org/package/jsonresume-theme-engineering)
 
-This is the engineering theme for [JSON Resume](http://jsonresume.org/), based off of [jsonresume-theme-business-professional-compact](https://github.com/yechoorv/jsonresume-theme-business-professional-compact) and aims to implement the best practices for engineering resumes described in https://www.reddit.com/r/EngineeringResumes/wiki/index/. It is intended for [senior/staff level engineers](https://www.reddit.com/r/EngineeringResumes/wiki/index/#wiki_senior_engineers_and_above_.2810.2B_yoe.29).
+This is the engineering theme for [JSON Resume](http://jsonresume.org/), based on [jsonresume-theme-business-professional-compact](https://github.com/yechoorv/jsonresume-theme-business-professional-compact); it aims to implement the best practices for engineering resumes described in https://www.reddit.com/r/EngineeringResumes/wiki/index/.
+
+It is intended for [senior/staff level engineers](https://www.reddit.com/r/EngineeringResumes/wiki/index/#wiki_senior_engineers_and_above_.2810.2B_yoe.29), meaning engineers who already have a professional track record. Therefore, it is possible to group several positions at a company under a single heading in order to visualize promotions. Similarly, consulting work for several projects can be displayed for a consulting agency.
+
+This can be done by multiple work items with the same (company) name like this:
+```
+  "work": [
+    {
+      "name": "Stripe",
+      "position": "Staff Software Engineer",
+    },
+    {
+      "name": "Stripe",
+      "position": "Senior Software Engineer"
+    }
+  ]
+```
 
 <p align="center">
   <kbd>

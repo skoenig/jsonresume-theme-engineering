@@ -1,12 +1,24 @@
 <div class="item-header">
+    {{#if subtitle}}
     {{#if title}}
     <div class="item-header-title">
-        {{title}}
+        {{title}}{{#if location}}<span class="item-location">, {{location}}</span>{{/if}}
     </div>
     {{/if}}
-    {{#if subtitle}}
-    <div class="item-header-subtitle">
-        {{subtitle}}
+    <div class="item-header-subtitle-row">
+        <div class="item-header-subtitle">
+            {{subtitle}}
+        </div>
+        {{> item-details startDate=startDate endDate=endDate startDate2=startDate2 endDate2=endDate2}}
+    </div>
+    {{else}}
+    <div class="item-header-title-row">
+        {{#if title}}
+        <div class="item-header-title">
+            {{title}}{{#if location}}<span class="item-location">, {{location}}</span>{{/if}}
+        </div>
+        {{/if}}
+        {{> item-details startDate=startDate endDate=endDate startDate2=startDate2 endDate2=endDate2}}
     </div>
     {{/if}}
 </div>
