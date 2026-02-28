@@ -1,7 +1,7 @@
 <div class="item-header">
     {{#if title}}
     <div class="item-header-title">
-        {{title}}
+        {{title}}{{#if location}}<span class="item-location">, {{location}}</span>{{/if}}
     </div>
     {{/if}}
     {{#if subtitle}}

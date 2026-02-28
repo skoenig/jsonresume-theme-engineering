@@ -33,10 +33,15 @@ Handlebars.registerHelper({
     return moment(date).format('MMM YYYY');
   },
 
-  getValueIfDiffFromPrevious: function (array, index, key) {
-    return array[index - 1] && array[index][key] === array[index - 1][key]
-      ? ''
-      : array[index][key];
+  getValueIfDiffFromPrevious: function (array, index, checkKey, returnKey) {
+    const current = array[index];
+    const previous = array[index - 1];
+
+    if (previous && previous[checkKey] === current[checkKey]) {
+      return '';
+    }
+
+    return current[typeof returnKey === 'string' ? returnKey : checkKey];
   },
 });
 

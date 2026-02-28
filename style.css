@@ -52,6 +52,10 @@ a {
     font-weight: bold;
 }
 
+.item-location {
+    font-weight: normal;
+}
+
 .item>.item-header>.item-header-subtitle {
     font-style: italic;
 }
@@ -91,6 +95,7 @@ a {
         size: portrait;
         margin: 10mm 25mm;
     }
+
     #resume {
         max-width: 100%;
         border: 0px;
@@ -98,12 +103,14 @@ a {
         box-shadow: none;
         -webkit-box-shadow: none;
     }
+
     body,
     html,
     #resume {
         margin: 0px;
         padding: 0px;
     }
+
     .controls {
         display: none;
     }
