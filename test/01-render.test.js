@@ -1,6 +1,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const prettier = require('prettier');
 const { render } = require('../index');
 
 describe('Render', function () {
@@ -95,6 +96,18 @@ describe('Render', function () {
       output.includes('<title>Large Resume</title>'),
       'Output should handle a large resume object',
     );
+  });
+
+  it('should produce well-formed HTML', async function () {
+    const resume = JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, '..', 'sample-resume.json'),
+        'utf-8',
+      ),
+    );
+    const output = render(resume);
+    const formatted = await prettier.format(output, { parser: 'html' });
+    assert.ok(formatted, 'Output should be truthy');
   });
 
   it('should handle special characters in fields', function () {
