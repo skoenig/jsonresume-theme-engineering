@@ -37,7 +37,7 @@
     "prettier": "^3.8.1",
     "puppeteer": "^24.22.3",
     "resumed": "^6.1.0",
-    "sinon": "^21.0.0"
+    "sinon": "^22.0.0"
   },
   "prettier": {
     "singleQuote": true
