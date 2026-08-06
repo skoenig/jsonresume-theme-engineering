@@ -19,7 +19,7 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           fetch-depth: 0
       - name: Bump version
-        uses: phips28/gh-action-bump-version@v11.1.8
+        uses: phips28/gh-action-bump-version@v12.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
